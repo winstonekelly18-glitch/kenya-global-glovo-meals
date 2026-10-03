@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kenya Global Glovo Meals</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="hb">
+        <button id="burger" aria-label="Menu">☰</button>
+        <a class="brand" data-v="home"
+          >🍽️ <span>Kenya Global<br />Glovo Meals</span></a
+        >
+        <input id="q" type="search" placeholder="Search meals..." />
+        <nav>
+          <button data-v="home">Menu</button
+          ><button data-v="favs">❤️ Favorites</button>
+          <button data-v="orders">📦 My Orders</button
+          ><button data-v="admin">📊 Admin</button>
+        </nav>
+        <button id="dark" title="Dark mode">🌙</button>
+        <button id="cartBtn">🛒 <b id="cnt">0</b></button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="view">
+        <div class="hero">
+          <h1>Good food. Delivered across Nairobi.</h1>
+          <p>Fresh meals from Kenya's favourite kitchens, at your door fast.</p>
+          <button class="cta" id="order">Order Now</button>
+          <div id="info"></div>
+        </div>
+        <h2>🎟️ Special Offers <small>(tap to use a code)</small></h2>
+        <div class="offers">
+          <button data-act="code" data-c="GLOVO10">
+            <b>GLOVO10</b><br />10% off your order
+          </button>
+          <button data-act="code" data-c="WELCOME20">
+            <b>WELCOME20</b><br />20% off for new customers
+          </button>
+          <button data-act="code" data-c="FOOD50">
+            <b>FOOD50</b><br />KSh 50 off
+          </button>
+        </div>
+        <h2>🔥 Popular Right Now</h2>
+        <div id="pop" class="grid"></div>
+        <h2>Full Menu</h2>
+        <div class="tools">
+          <div id="cats"></div>
+          <select id="sort">
+            <option value="pop">Most popular</option>
+            <option value="rating">Top rated</option>
+            <option value="price">Price: low to high</option>
+            <option value="name">Name A-Z</option>
+          </select>
+          <label><input type="checkbox" id="veg" /> Vegetarian</label>
+          <label
+            >Max KSh
+            <input
+              type="range"
+              id="max"
+              min="100"
+              max="1000"
+              step="50"
+              value="1000"
+            />
+            <b id="maxv">1000</b></label
+          >
+        </div>
+        <div id="menu" class="grid"></div>
+      </section>
+      <section id="favs" class="view" hidden>
+        <h2>❤️ My Favorites</h2>
+        <div id="favGrid" class="grid"></div>
+      </section>
+      <section id="orders" class="view" hidden>
+        <h2>📦 My Orders</h2>
+        <div id="orderList"></div>
+      </section>
+      <section id="admin" class="view" hidden>
+        <h2>📊 Admin Dashboard</h2>
+        <div id="stats" class="stats"></div>
+        <h3>Sales by meal</h3>
+        <div id="chart"></div>
+        <h3>Manage Orders</h3>
+        <div id="adminOrders"></div>
+        <h3>Manage Menu</h3>
+        <div id="adminMenu"></div>
+      </section>
+    </main>
+
+    <aside id="drawer">
+      <div class="dh">
+        <h3>🛒 Your Cart</h3>
+        <button data-act="close">✕</button>
+      </div>
+      <div id="cartItems"></div>
+      <label class="lb"
+        >Delivery area
+        <select id="area"></select
+      ></label>
+      <div class="promo">
+        <input id="promo" placeholder="Promo code" /><button id="apply">
+          Apply
+        </button>
+      </div>
+      <div id="totals"></div>
+      <button class="cta" id="checkout">Proceed to Checkout</button>
+    </aside>
+
+    <div id="modal" hidden>
+      <form id="form">
+        <h3>Checkout</h3>
+        <input name="name" placeholder="Full name" required />
+        <input
+          name="phone"
+          placeholder="Phone e.g. 0712 345 678"
+          pattern="[0-9+ ]{10,15}"
+          required
+        />
+        <input name="email" type="email" placeholder="Email" required />
+        <textarea
+          name="notes"
+          placeholder="Delivery instructions (optional)"
+        ></textarea>
+        <div class="pay">
+          <label
+            ><input type="radio" name="pay" value="Cash on Delivery" checked />
+            Cash on Delivery</label
+          >
+          <label><input type="radio" name="pay" value="M-Pesa" /> M-Pesa</label>
+          <label><input type="radio" name="pay" value="Card" /> Card</label>
+        </div>
+        <p class="mu">Payments are simulated. No real money is charged.</p>
+        <div class="row">
+          <button type="button" data-act="cancel">Cancel</button
+          ><button class="cta">Place Order</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="toasts"></div>
+    <footer>
+      © Kenya Global Glovo Meals · Portfolio demo project (HTML, CSS,
+      JavaScript)
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
